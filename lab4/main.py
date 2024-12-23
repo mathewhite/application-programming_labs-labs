@@ -7,8 +7,8 @@ import sys
 
 def create_dataframe(data_path: str) -> pd.DataFrame:
     """
-    Функция создаёт Pandas DataFrame, содержащий информацию о путях к изображениям в заданной директории.
-    :param data_path: Путь к директории, в которой находятся изображения.
+    Функция создаёт Pandas DataFrame, содержащий информацию о путях к изображениям по scv файлу.
+    :param data_path: Путь к scv файлу.
     :return pd.DataFrame: Pandas DataFrame с двумя столбцами absolute_path и relative_path.
     """
     df = pd.read_csv(data_path)
@@ -102,7 +102,7 @@ def main(data_path: str, max_width: int, max_height: int) -> None:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Анализ изображений и их фильтрация по диапазону размеров.")
-    parser.add_argument("--data_path", type=str, required=True, help="Путь к папке с изображениями")
+    parser.add_argument("--data_path", type=str, required=True, help="Путь к scv файлу с путями к изображениям")
     parser.add_argument("--max_width", type=int,help="Максимальная ширина изображения")
     parser.add_argument("--max_height", type=int, help="Максимальная высота изображения")
 
